@@ -251,11 +251,13 @@
       if (!msg) return;
       addMessage(msg, "user");
       chatInput.value = "";
-      fetch("http://localhost:7861/chat", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
+      fetch("https://unstrewn-bryanna-semipervious.ngrok-free.dev", {
+  	method: "POST",
+  	mode: "cors",
+  	headers: {"Content-Type": "application/json"},
+  	body: JSON.stringify({message: msg})
       })
+
       .then(res => res.json())
       .then(data => addMessage(data.response, "bot"))
       .catch(e => addMessage("Error contacting RICA: " + e, "bot"));
@@ -264,3 +266,4 @@
 
 </body>
 </html>
+
