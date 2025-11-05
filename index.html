@@ -251,11 +251,11 @@
       if (!msg) return;
       addMessage(msg, "user");
       chatInput.value = "";
-      fetch("https://unstrewn-bryanna-semipervious.ngrok-free.dev", {
-  	method: "POST",
-  	mode: "cors",
-  	headers: {"Content-Type": "application/json"},
-  	body: JSON.stringify({message: msg})
+      fetch("https://rica-backend.onrender.com/chat", {
+  	    method: "POST",
+  	    mode: "cors",
+  	    headers: {"Content-Type": "application/json"},
+  	    body: JSON.stringify({message: msg})
       })
 
       .then(res => res.json())
